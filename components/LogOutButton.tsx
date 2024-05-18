@@ -7,6 +7,9 @@ export const LogOutButton = () => {
   const router = useRouter();
 
   const handleLogOut = () => {
+    localStorage.clear();
+
+    localStorage.removeItem("orderList");
     localStorage.setItem("firstLogin", false.toString());
     router.push("/sign-in");
     setTimeout(() => {

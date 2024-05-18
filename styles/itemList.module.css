@@ -1,0 +1,33 @@
+
+.wrap{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
+    gap: 10px; 
+
+}
+.wrap a{
+    width: 90%;
+}
+.itemWrap{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+}
+
+.img{
+    width: 100%;
+    margin: 5%;
+    margin-bottom: 10%;
+    border-radius: 10px;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+.price{
+    display: flex;
+    justify-content: center;
+}

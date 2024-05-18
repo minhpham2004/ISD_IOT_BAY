@@ -1,0 +1,56 @@
+.wrap{
+    width: 100%;
+    display: flex;
+    margin: 3%;
+}
+.imgWrap{
+    width: 40%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+}
+.desWrap{
+    margin-top: 3%;
+    width: 60%;
+}
+.img{
+    width: 100%;
+    margin: 5%;
+    border-radius: 20px;
+}
+
+.title{
+    font-size: 4vw;
+    display: flex;
+    text-transform: uppercase;
+}
+.price{
+    justify-content: center;
+    font-size: 3vw;
+}
+
+.qtySection{
+    display: flex;
+    align-items: center;
+    margin-top: 3%;
+}
+.qty{
+    margin: 2%;
+}
+.circle{
+  border-radius: 50%;
+  border-color: transparent;
+  background-color: rgb(85, 218, 255);
+  margin: 0%;
+  width: 3vw;
+  height: 3vw;
+}
+.addCart {
+  margin-top: 2%;
+  border-radius: 7px;
+  border-color: transparent;
+  background-color: rgb(255, 52, 100);
+  color: white;
+  padding: 1%;
+  width: 15vw;
+}

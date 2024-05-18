@@ -1,74 +1,21 @@
-import React from 'react';
+import { db } from "@/lib/db";
+import styles from "../../styles/itemList.module.css";
+import ListProduct from "./_action/ListProduct";
 
-const products = [
-  {
-    id: 1,
-    name: 'Earthen Bottle',
-    href: '#',
-    price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-  },
-  {
-    id: 2,
-    name: 'Nomad Tumbler',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg',
-    imageAlt: 'Olive drab green insulated bottle with flared screw lid and flat top.',
-  },
-  {
-    id: 3,
-    name: 'Focus Paper Refill',
-    href: '#',
-    price: '$89',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg',
-    imageAlt: 'Person using a pen to cross a task off a productivity paper card.',
-  },
-  {
-    id: 4,
-    name: 'Machined Mechanical Pencil',
-    href: '#',
-    price: '$35',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg',
-    imageAlt: 'Hand holding black machined steel mechanical pencil with brass tip and top.',
-  },
-  // More products...
-];
+async function getProducts() {
+  const products = await db.product.findMany({
+   
+  });
+  return products;
+}
 
-const Home = () => {
+export default async function Products() {
+  const products = await getProducts();
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        <h2 className="sr-only">Products</h2>
-
-        <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-          {products.map((product) => (
-            <div key={product.id} className="group">
-              <a href={product.href}>
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                  <img
-                    src={product.imageSrc}
-                    alt={product.imageAlt}
-                    className="h-full w-full object-cover object-center group-hover:opacity-75"
-                  />
-                </div>
-              </a>
-              <div className="flex flex-col justify-center items-center mt-4">
-                <div className="text-center">
-                  <h3 className="text-sm text-gray-700">{product.name}</h3>
-                  <p className="text-lg font-medium text-gray-900">{product.price}</p>
-                </div>
-                <button className="mt-2 py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-300 ease-in-out">
-                  Add to cart
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    <div className={styles.wrap}>
+      {products.map((product: any) => (
+        <ListProduct key={product.id} {...product} />
+      ))}
     </div>
   );
-};
-
-export default Home;
+}

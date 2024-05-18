@@ -33,16 +33,17 @@ model Product {
   orders      Order[]
 }
 
-
 model Order {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  userId    String
-  productId String
-  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  payment   Payment?
+  id            String   @id @default(uuid())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  userId        String
+  productId     String
+  productNumber Int
+  status        Boolean
+  product       Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  payment       Payment?
 }
 
 model Payment {

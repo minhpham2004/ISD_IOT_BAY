@@ -1,0 +1,37 @@
+/*!**********************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[7].use[3]!./styles/itemList.module.css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************/
+
+.itemList_wrap__IvPfN{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal width */
+    gap: 10px; 
+
+}
+.itemList_wrap__IvPfN a{
+    width: 90%;
+}
+.itemList_itemWrap__TdVSI{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+}
+
+.itemList_img__Nt84K{
+    width: 100%;
+    margin: 5%;
+    margin-bottom: 10%;
+    border-radius: 10px;
+}
+
+.itemList_title__4Glz7{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+.itemList_price__M5G89{
+    display: flex;
+    justify-content: center;
+}
+

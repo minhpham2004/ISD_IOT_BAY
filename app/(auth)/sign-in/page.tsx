@@ -17,8 +17,8 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { signIn } from "./_actions/signin";
 
-import { error } from "console";
 import { toast } from "sonner";
+import { findUserIdByName } from "./_actions/findUserIdByName";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -47,6 +47,14 @@ function SignIn() {
       } else {
         toast.success("Sign in successfully");
         localStorage.setItem("firstLogin", true.toString());
+
+        localStorage.setItem("userName", values.username);
+
+        const userId = await findUserIdByName(values.username);
+        if (userId) {
+          localStorage.setItem("userId", userId);
+        }
+
         router.push("/Home");
       }
     } catch (e) {
@@ -108,18 +116,30 @@ function SignIn() {
             <Button style={{ marginTop: "20px" }} type="submit">
               Sign in
             </Button>
-            <Link href={"/Home"}>
-              <Button style={{ marginLeft: "12px" }} className="bg-blue-500 text-white" type="submit">
+            {/* <Link href={"/Home"}>
+              <Button
+                style={{ marginLeft: "12px" }}
+                className="bg-blue-500 text-white"
+                type="submit"
+              >
                 Guest
               </Button>
-            </Link>
+            </Link> */}
           </form>
         </Form>
         <p className="my-4">
-        You don&apos;t have an account?{" "}
+          You don&apos;t have an account?{" "}
           <Link href={"/sign-up"}>
             <span className="text-sm text-gray-600 cursor-pointer hover:underline">
               Register Now
+            </span>
+          </Link>
+        </p>
+        <p className="my-4">
+          Are you a staff?{" "}
+          <Link href={"/staff"}>
+            <span className="text-sm text-gray-600 cursor-pointer hover:underline">
+              To Staff Dashboard
             </span>
           </Link>
         </p>

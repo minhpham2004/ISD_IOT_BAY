@@ -1,0 +1,10 @@
+{
+  "/(auth)/sign-in/page": "app/(auth)/sign-in/page.js",
+  "/(auth)/sign-up/page": "app/(auth)/sign-up/page.js",
+  "/Home/page": "app/Home/page.js",
+  "/CurrentOrderPage/page": "app/CurrentOrderPage/page.js",
+  "/checkout/view-all/page": "app/checkout/view-all/page.js",
+  "/staff/page": "app/staff/page.js",
+  "/(userView)/page": "app/(userView)/page.js",
+  "/(userView)/profile/page": "app/(userView)/profile/page.js"
+}

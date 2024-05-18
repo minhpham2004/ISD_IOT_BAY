@@ -7,6 +7,10 @@ export default function Home() {
   const firstLoginString = localStorage.getItem("firstLogin");
   const firstLogin = Boolean(firstLoginString);
 
+  //logged in user
+  const userNameString = localStorage.getItem("userName");
+  const userName = String(userNameString);
+
   useEffect(() => {
     if (!firstLogin) {
       router.push("/sign-in");

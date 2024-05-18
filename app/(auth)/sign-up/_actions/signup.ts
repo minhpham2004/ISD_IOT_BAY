@@ -37,6 +37,7 @@ export async function signUp(data: any) {
       email: resultData.email,
       fullName: resultData.fullName,
       phoneNumber: resultData.phone,
+      role: "USER",
     },
   });
 }
